@@ -1,0 +1,16 @@
+.players{
+	border: solid 1px black;
+	margin:10px;
+	width: 20%;
+}
+
+.attacker{
+	border: solid 1px black;
+	margin:10px;
+	width: 20%;
+}
+
+.players{
+	background: blue;
+}
+
