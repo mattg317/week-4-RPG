@@ -20,33 +20,40 @@ console.log(guys[1].HP)
 ///Picking Players==================================================================
 	var attacker = "";
 	var defender = "";
+	var attackID
 
 // //Hero==========================================================================
 
-	// $('.players').on('click', 'div', function(){});
 		function chooseHero(){
+				$('.players').on('click', 'div', function(){
 				$(this).removeClass('playerChoice');
-				var attackID= $(this).data('let');
-				console.log("WHATS THE ATTACK ID", attackID)
+				attackID= $(this).data('let');
+				console.log($(this).data('let'));
+				console.log(guys[attackID]);
+				// var attacker = $('.players').attr("data-let");
 				attacker = guys[attackID]
 				$('.enemies').append($('.playerChoice'));
+				console.log("attacker: "+attacker.HP);
 				// console.log("attackerHP: "+ attacker.HP);
 				console.log("---------------------------------")
 				console.log(this)
-				console.log("attacker: "+attacker.name)
+				
+			});
 };
 
 ///So don't run on click function inside a function
 
 
-// //Villian===============================================================
-// $('.enemies').on('click','div', function(){});
+// //Villian==============================================================
 function chooseVillian(){
-					$(this).removeClass('playerChoice')
-					$('#defender').append(this);
-					var defendID = $(this).data("let")
-					defender = guys[defendID]
-					console.log("defender: "+defender.name)
+					$('.enemies').on('click','div', function(){
+				$(this).removeClass('playerChoice')
+				$('#defender').append(this);
+				defendID = $(this).data("let")
+				defender = guys[defendID]
+				console.log("defender: "+defender.HP)
+				
+			});
 	
 };
 //Attack Function===================================================================
@@ -81,55 +88,54 @@ function playGame(){
 
 
 $(document).ready(function(){
-
-$('.players').on('click', 'div', function(){
 	chooseHero();
-});
-
-$('.enemies').on('click','div', function(){
 	chooseVillian();
-});
 
-$('#attack').on('click',function(){
-	attacking(attacker, defender);
-});
-
-// 			$('.players').on('click', 'div', function(){
-// 				$(this).removeClass('playerChoice');
-// 				var attackID= $(this).data('let');
-// 				console.log($(this).data('let'));
-// 				console.log(guys[attackID]);
-// 				// var attacker = $('.players').attr("data-let");
-// 				var attacker = guys[attackID]
-// 				$('.enemies').append($('.playerChoice'));
-// 				console.log("attacker: "+attacker.HP);
-// 				// console.log("attackerHP: "+ attacker.HP);
-// 				console.log("---------------------------------")
-// 				console.log(this)
-				
-// // });
-
-// 				$('.enemies').on('click','div', function(){
-// 					$(this).removeClass('playerChoice')
-// 					$('#defender').append(this);
-// 					var defendID = $(this).data("let")
-// 					var defender = guys[defendID]
-// 					console.log("defender: "+defender.HP)
-					
-// 				// });
-
-// 					$('#attack').on('click',function(){
-// 						// console.log('attack')
-// 						attacking(attacker, defender);
-// 						console.log("attacker: " +attacker.HP);
-// 						console.log("defender: "+ defender.HP);
-// 					});
-
-
-
+// $('.players').on('click', 'div', function(){
+// 	attackID= $(this).data('let');
+// 	chooseHero();
 // });
 
-// 		});
+// $('.enemies').on('click','div', function(){
+// 	chooseVillian($(this));
+// });
+
+// $('#attack').on('click',function(){
+// 	attacking(attacker, defender);
+// });
+
+			// $('.players').on('click', 'div', function(){
+			// 	$(this).removeClass('playerChoice');
+			// 	attackID= $(this).data('let');
+			// 	console.log($(this).data('let'));
+			// 	console.log(guys[attackID]);
+			// 	// var attacker = $('.players').attr("data-let");
+			// 	attacker = guys[attackID]
+			// 	$('.enemies').append($('.playerChoice'));
+			// 	console.log("attacker: "+attacker.HP);
+			// 	// console.log("attackerHP: "+ attacker.HP);
+			// 	console.log("---------------------------------")
+			// 	console.log(this)
+				
+			// });
+
+			// $('.enemies').on('click','div', function(){
+			// 	$(this).removeClass('playerChoice')
+			// 	$('#defender').append(this);
+			// 	defendID = $(this).data("let")
+			// 	defender = guys[defendID]
+			// 	console.log("defender: "+defender.HP)
+				
+			// });
+
+			$('#attack').on('click',function(){
+				// console.log('attack')
+				attacking(attacker, defender);
+				console.log("attacker: " +attacker.HP);
+				console.log("defender: "+ defender.HP);
+			});
+
+
 
 
 });
